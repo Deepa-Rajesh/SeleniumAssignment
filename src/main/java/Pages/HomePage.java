@@ -18,7 +18,6 @@ public class HomePage {
     }
 
     public void verifyLandingPage(){
-
         Assert.assertEquals(welcomeMessage.getText(), "Logged in successfully");
     }
 }

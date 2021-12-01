@@ -34,7 +34,7 @@ public class ProductCheckout extends BaseClass{
         productPage.addProductToCart("2");
         shoppingCartPage.cartDetail();
         checkoutPage.addressSelection("Deepa", "Rajesh", "Door no 501",
-                "Linking Road", "340056", "56789543", "34589");
+                "Linking Road","Atlanta", "Georgia","60003","\"United States of America\"","9444043586");
         checkoutPage.shippingSameAsBilling();
         paymentPage.clickCheck();
         paymentPage.clickSaveAndContinue();

@@ -19,13 +19,13 @@ public class CheckoutPage {
     @FindBy(id = "order_bill_address_attributes_address2")
     private WebElement address2;
     @FindBy(id = "order_bill_address_attributes_city")
-    private WebElement city;
+    private WebElement City;
     @FindBy(id = "order_bill_address_attributes_state_id")
-    private WebElement state;
+    private WebElement stateDropDown;
     @FindBy(id = "order_bill_address_attributes_zipcode")
     private WebElement zipcode;
     @FindBy(id = "order_bill_address_attributes_country_id")
-    private WebElement country;
+    private WebElement countryDropDown;
     @FindBy(id = "order_bill_address_attributes_phone")
     private WebElement phone;
     @FindBy(name = "save_user_address")
@@ -45,18 +45,20 @@ public class CheckoutPage {
         wait = new WebDriverWait(driver, 50);
     }
 
-    public void addressSelection(String firstname, String lastname , String Address, String Address2, String State,
-                                  String phonenum, String Zipcode) {
+    public void addressSelection(String firstname, String lastname , String Address, String Address2,
+                                 String city,String State, String Zipcode,String country, String phonenum) {
 
         firstName.sendKeys(firstname);
         lastName.sendKeys(lastname);
         address.sendKeys(Address);
         address2.sendKeys(Address2);
-        Select chooseState= new Select(state);
+        City.sendKeys(city);
+        Select chooseState= new Select(stateDropDown);
         chooseState.selectByVisibleText(State);
+        Select dropCountry = new Select(countryDropDown);
+        dropCountry.selectByVisibleText(country);
         zipcode.sendKeys(Zipcode);
         phone.sendKeys(phonenum);
-
     }
 
     public void shippingSameAsBilling(){
@@ -64,7 +66,6 @@ public class CheckoutPage {
         saveAddressChkBox.click();
         Assert.assertFalse(saveAddressChkBox.isSelected());
         saveAndContinueButton.click();
-
     }
 
 }
